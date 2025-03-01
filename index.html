@@ -48,47 +48,54 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("sidebar-container").innerHTML = data;
-        });
-      // Load navbar
-      fetch("./assets/components/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-container").innerHTML = data;
-        });
-      // Load about page
-      fetch("./assets/components/aboutpage.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("about-container").innerHTML = data;
-        });
-      // Load resume page
-      fetch("./assets/components/resumepage.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("resume-container").innerHTML = data;
-        });
-      // Load portopolio page
-      fetch("./assets/components/portopoliopage.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("portopolio-container").innerHTML = data;
-        });
-      // Load blog page
-      fetch("./assets/components/blogpage.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("blog-container").innerHTML = data;
-        });
-      // Load contact page
-      fetch("./assets/components/contactpage.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("contact-container").innerHTML = data;
-
-          // Load script.js after sidebar is loaded
-          const script = document.createElement("script");
-          script.src = "./assets/js/script.js";
-          document.body.appendChild(script);
+          // Load navbar
+          fetch("./assets/components/navbar.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById("navbar-container").innerHTML = data;
+              // Load about page
+              fetch("./assets/components/aboutpage.html")
+                .then((response) => response.text())
+                .then((data) => {
+                  document.getElementById("about-container").innerHTML = data;
+                  // Load resume page
+                  fetch("./assets/components/resumepage.html")
+                    .then((response) => response.text())
+                    .then((data) => {
+                      document.getElementById("resume-container").innerHTML =
+                        data;
+                      // Load portopolio page
+                      fetch("./assets/components/portopoliopage.html")
+                        .then((response) => response.text())
+                        .then((data) => {
+                          document.getElementById(
+                            "portopolio-container"
+                          ).innerHTML = data;
+                          // Load blog page
+                          fetch("./assets/components/blogpage.html")
+                            .then((response) => response.text())
+                            .then((data) => {
+                              document.getElementById(
+                                "blog-container"
+                              ).innerHTML = data;
+                              // Load contact page
+                              fetch("./assets/components/contactpage.html")
+                                .then((response) => response.text())
+                                .then((data) => {
+                                  document.getElementById(
+                                    "contact-container"
+                                  ).innerHTML = data;
+                                  // Load script.js after all components are loaded
+                                  const script =
+                                    document.createElement("script");
+                                  script.src = "./assets/js/script.js";
+                                  document.body.appendChild(script);
+                                });
+                            });
+                        });
+                    });
+                });
+            });
         });
     </script>
     <!-- <script src="./assets/js/script.js"></script> -->
