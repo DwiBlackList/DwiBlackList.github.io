@@ -62,32 +62,24 @@
                   fetch("./assets/components/resumepage.html")
                     .then((response) => response.text())
                     .then((data) => {
-                      document.getElementById("resume-container").innerHTML =
-                        data;
+                      document.getElementById("resume-container").innerHTML = data;
                       // Load portopolio page
                       fetch("./assets/components/portopoliopage.html")
                         .then((response) => response.text())
                         .then((data) => {
-                          document.getElementById(
-                            "portopolio-container"
-                          ).innerHTML = data;
+                          document.getElementById("portopolio-container").innerHTML = data;
                           // Load blog page
                           fetch("./assets/components/blogpage.html")
                             .then((response) => response.text())
                             .then((data) => {
-                              document.getElementById(
-                                "blog-container"
-                              ).innerHTML = data;
+                              document.getElementById("blog-container").innerHTML = data;
                               // Load contact page
                               fetch("./assets/components/contactpage.html")
                                 .then((response) => response.text())
                                 .then((data) => {
-                                  document.getElementById(
-                                    "contact-container"
-                                  ).innerHTML = data;
+                                  document.getElementById("contact-container").innerHTML = data;
                                   // Load script.js after all components are loaded
-                                  const script =
-                                    document.createElement("script");
+                                  const script = document.createElement("script");
                                   script.src = "./assets/js/script.js";
                                   document.body.appendChild(script);
                                 });
