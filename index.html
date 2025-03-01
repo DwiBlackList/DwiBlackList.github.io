@@ -34,18 +34,18 @@
 
       <div class="main-content">
         <div id="navbar-container"></div>
-        <div id="about-container" data-page="about"></div>
-        <div id="resume-container" data-page="resume"></div>
-        <div id="portopolio-container" data-page="portopolio"></div>
-        <div id="blog-container" data-page="blog"></div>
-        <div id="contact-container" data-page="contact"></div>
+        <div id="about-container"></div>
+        <div id="resume-container"></div>
+        <div id="portopolio-container"></div>
+        <div id="blog-container"></div>
+        <div id="contact-container"></div>
       </div>
     </main>
 
     <script>
       // Load all components
       Promise.all([
-        fetch("./assets/components/sidebar.html").then(response => response.text()),
+        fetch("/assets/components/sidebar.html").then(response => response.text()),
         fetch("./assets/components/navbar.html").then(response => response.text()),
         fetch("./assets/components/aboutpage.html").then(response => response.text()),
         fetch("./assets/components/resumepage.html").then(response => response.text()),
