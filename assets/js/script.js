@@ -31,15 +31,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // add click event to all modal items
-  for (let i = 0; i < testimonialsItem.length; i++) {
-    testimonialsItem[i].addEventListener("click", function () {
+  testimonialsItem.forEach(item => {
+    item.addEventListener("click", function () {
       modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
       modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
       modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
       modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
       testimonialsModalFunc();
     });
-  }
+  });
 
   // add click event to modal close button
   if (modalCloseBtn) {
@@ -60,35 +60,33 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // add event in all select items
-  for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function () {
+  selectItems.forEach(item => {
+    item.addEventListener("click", function () {
       let selectedValue = this.innerText.toLowerCase();
       selectValue.innerText = this.innerText;
       elementToggleFunc(select);
       filterFunc(selectedValue);
     });
-  }
+  });
 
   // filter variables
   const filterItems = document.querySelectorAll("[data-filter-item]");
 
   const filterFunc = function (selectedValue) {
-    for (let i = 0; i < filterItems.length; i++) {
-      if (selectedValue === "all") {
-        filterItems[i].classList.add("active");
-      } else if (selectedValue === filterItems[i].dataset.category) {
-        filterItems[i].classList.add("active");
+    filterItems.forEach(item => {
+      if (selectedValue === "all" || selectedValue === item.dataset.category) {
+        item.classList.add("active");
       } else {
-        filterItems[i].classList.remove("active");
+        item.classList.remove("active");
       }
-    }
+    });
   }
 
   // add event in all filter button items for large screen
   let lastClickedBtn = filterBtn[0];
 
-  for (let i = 0; i < filterBtn.length; i++) {
-    filterBtn[i].addEventListener("click", function () {
+  filterBtn.forEach(btn => {
+    btn.addEventListener("click", function () {
       let selectedValue = this.innerText.toLowerCase();
       selectValue.innerText = this.innerText;
       filterFunc(selectedValue);
@@ -96,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
       this.classList.add("active");
       lastClickedBtn = this;
     });
-  }
+  });
 
   // contact form variables
   const form = document.querySelector("[data-form]");
@@ -104,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const formBtn = document.querySelector("[data-form-btn]");
 
   // add event to all form input field
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function () {
+  formInputs.forEach(input => {
+    input.addEventListener("input", function () {
       // check form validation
       if (form.checkValidity()) {
         formBtn.removeAttribute("disabled");
@@ -113,25 +111,25 @@ document.addEventListener("DOMContentLoaded", function() {
         formBtn.setAttribute("disabled", "");
       }
     });
-  }
+  });
 
   // page navigation variables
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   const pages = document.querySelectorAll("[data-page]");
 
   // add event to all nav link
-  for (let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener("click", function () {
-      for (let i = 0; i < pages.length; i++) {
-        if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-          pages[i].classList.add("active");
-          navigationLinks[i].classList.add("active");
+  navigationLinks.forEach(link => {
+    link.addEventListener("click", function () {
+      pages.forEach(page => {
+        if (this.innerHTML.toLowerCase() === page.dataset.page) {
+          page.classList.add("active");
+          link.classList.add("active");
           window.scrollTo(0, 0);
         } else {
-          pages[i].classList.remove("active");
-          navigationLinks[i].classList.remove("active");
+          page.classList.remove("active");
+          link.classList.remove("active");
         }
-      }
+      });
     });
-  }
+  });
 });
