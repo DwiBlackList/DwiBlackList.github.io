@@ -829,6 +829,17 @@ main {
   line-height: 1.6;
 }
 
+.timeline-btn { 
+  display: inline flow-root list-item;
+  margin: 5px;
+  color: var(--white-1);
+  background: var(--onyx);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  width: max-content;
+  padding: 3px 12px;
+  border-radius: 8px;
+}
 
 /**
  * skills 
